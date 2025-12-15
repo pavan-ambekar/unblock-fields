@@ -1,0 +1,28 @@
+{
+	"manifest_version": 3,
+
+	"name": "Unblock Fields",
+	"description": "Enable disabled and readonly form fields on the active tab for testing and debugging.",
+	"version": "0.0.1",
+	"icons": {
+		"16": "icons/icon-16.png",
+		"48": "icons/icon-48.png",
+		"128": "icons/icon-128.png"
+	},
+
+	"action": {
+		"default_icon": {
+			"16": "icons/icon-16.png",
+			"48": "icons/icon-48.png",
+			"128": "icons/icon-128.png"
+		},
+		"default_title": "Unblock Fields",
+		"default_popup": "popup.html"
+	},
+
+	"permissions": ["activeTab", "scripting"],
+
+	"background": {
+		"service_worker": "background.js"
+	}
+}

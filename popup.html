@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ban Field Enable</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --muted: #6b7280;
+      --accent: #0ea5a4;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --radius: 8px;
+      --pad: 12px;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial;
+      width: 320px;
+      padding: var(--pad);
+      background: var(--bg);
+      color: #0f172a;
+    }
+
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    p.lead {
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    button.ghost {
+      background: transparent;
+      color: var(--muted);
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 13px;
+      min-height: 18px;
+    }
+
+    #status.success {
+      color: var(--success);
+    }
+
+    #status.error {
+      color: var(--danger);
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Enable fields on this page</h3>
+  <p class="lead">This will enable disabled and readonly form fields on the active tab.</p>
+
+  <div class="controls">
+    <button id="enableBtn" class="primary">Enable fields</button>
+    <button id="closeBtn" class="ghost">Close</button>
+  </div>
+
+  <div id="status" aria-live="polite"></div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

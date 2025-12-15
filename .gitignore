@@ -1,0 +1,18 @@
+# Ignore common OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# node / editor
+node_modules/
+.vscode/
+*.log
+
+# packaging outputs
+*.zip
+*.crx
+*.pem
+PUBLISH.md
+test.html
+pack-extension.ps1
+
