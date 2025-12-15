@@ -128,6 +128,7 @@ unlock-form-fields/
 ├── popup.html
 ├── popup.js
 ├── README.md
+├── CHANGELOG.md
 ├── LICENSE
 ```
 
