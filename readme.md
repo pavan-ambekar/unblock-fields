@@ -9,6 +9,7 @@ form fields on the **active tab** — useful for testing, debugging, and QA.
 
 - Enable disabled input, textarea, and select fields
 - Remove `readonly` attributes
+- Unhide hidden elements on the page
 - Works only on the **current active tab**
 - One-click action
 - No tracking, no analytics, no data collection
