@@ -18,6 +18,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		filesToInject = ['autofill.js'];
 	} else if (message.type === 'inject-unhide') {
 		filesToInject = ['unhide.js'];
+	} else if (message.type === 'inject-remove-specimen') {
+		filesToInject = ['remove-specimen.js'];
 	} else {
 		sendResponse({ success: false, error: 'unknown_type' });
 		return;

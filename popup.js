@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const enableBtn = document.getElementById('enableBtn');
 	const unhideBtn = document.getElementById('unhideBtn');
+	const removeSpecimenBtn = document.getElementById('removeSpecimenBtn');
 	const closeBtn = document.getElementById('closeBtn');
 	const status = document.getElementById('status');
 
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.disabled = true;
 		enableBtn.disabled = true;
 		unhideBtn.disabled = true;
+		removeSpecimenBtn.disabled = true;
 
 		try {
 			const tabs = await chrome.tabs.query({
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				button.disabled = false;
 				enableBtn.disabled = false;
 				unhideBtn.disabled = false;
+				removeSpecimenBtn.disabled = false;
 				return;
 			}
 
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					button.disabled = false;
 					enableBtn.disabled = false;
 					unhideBtn.disabled = false;
+					removeSpecimenBtn.disabled = false;
 					if (chrome.runtime.lastError) {
 						status.textContent = 'Error: ' + chrome.runtime.lastError.message;
 						status.className = 'error';
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 							'Injection failed: ' + (response && response.error);
 						status.className = 'error';
 					}
-				}
+				},
 			);
 		} catch (err) {
 			status.textContent = 'Unexpected error: ' + err.message;
@@ -54,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			button.disabled = false;
 			enableBtn.disabled = false;
 			unhideBtn.disabled = false;
+			removeSpecimenBtn.disabled = false;
 		}
 	};
 
@@ -63,6 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	unhideBtn.addEventListener('click', () => {
 		handleInjection('inject-unhide', unhideBtn, 'Elements unhidden.');
+	});
+
+	removeSpecimenBtn.addEventListener('click', () => {
+		handleInjection(
+			'inject-remove-specimen',
+			removeSpecimenBtn,
+			'Specimen removed.',
+		);
 	});
 
 	closeBtn.addEventListener('click', () => window.close());
